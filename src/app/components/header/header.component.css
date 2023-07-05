@@ -1,0 +1,12 @@
+div {
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    & p {
+        font-size: 16px;
+        padding: 1rem;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+}
