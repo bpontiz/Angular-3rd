@@ -61,5 +61,9 @@ export class FormComponent {
     this.userModel.value.email = '';
     this.userModel.value.password = '';
     this.userModel.value.address = [{address: ''}];
-  }
+  };
+
+  deleteActualAddress(i: number): void {
+    this.addressesFormArray.removeAt(i);
+  };
 }

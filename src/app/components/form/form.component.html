@@ -5,24 +5,31 @@
                 <label for="username" class="labelBox">Username</label>
                 <input type="text" formControlName="username" id="usernameBox" autocomplete="off">
             </div>
+
             <div class="divBox">
                 <label for="email" class="labelBox">Email</label>
                 <input type="email" formControlName="email" id="emailBox" autocomplete="off">
             </div>
-            <div class="divBox">
+
+            <div class="divBox">                
                 <label for="password" class="labelBox">Password</label>
                 <input type="password" formControlName="password" id="passwordBox">
             </div>
+
             <div class="divBox" *ngFor="let address of addressesFormArray.controls; let i = index">
                 <label for="address" class="labelBox">Address</label>
                 <ng-container [formGroup]="address">
                     <input type="text" formControlName="address" id="addressBox">
                 </ng-container>
-                <p (click)="addNewAddress()" class="pBox">Add new address</p>
+                <div class="divBox3">
+                    <button *ngIf="i > 0" (click)="deleteActualAddress(i)" class="removeBtn">X</button>
+                    <p (click)="addNewAddress()" class="pBox">Add</p>
+                </div>
             </div>
+
             <div>
                 <button type="submit" class="signBtn">Sign Up</button>
-                <button type="button" class="signBtn" (click)="resetControl()">Reset</button>    
+                <button type="reset" class="signBtn" (click)="resetControl()">Reset</button>    
             </div>
         </form>
     </section>

@@ -46,7 +46,7 @@
     outline: none;
 }
 
-.signBtn {
+.signBtn, .removeBtn {
     padding: 6px;
     border-radius: 5px;
     border: 1px solid #555;
@@ -58,7 +58,7 @@
     margin-right: 2px;
 }
 
-.signBtn:hover {
+.signBtn:hover, .removeBtn:hover {
     background-color: green;
     border: 1px solid green;
     color: #FFF;
@@ -68,8 +68,25 @@
 
 .pBox {
     cursor: pointer;
+    width: 35px;
 }
 
 .pBox:hover {
     color: rgb(14, 14, 206);
+}
+
+.divBox {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: .5rem;
+    width: 275px;
+}
+
+.removeBtn {
+    width: 35px;
+}
+
+.removeBtn:hover {
+    background-color: red;
+    border: 1px solid red;
 }
