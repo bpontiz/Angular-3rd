@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl, FormArray } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
 
 interface AddressFormGroup {
   address: FormControl <string | null>
@@ -22,18 +22,18 @@ export class FormComponent {
     console.log(this.addressesFormArray);
   };
 
-  usernameControl = new FormControl('');
+  usernameControl = new FormControl('', [Validators.required, Validators.minLength(8)]);
 
-  emailControl = new FormControl('');
+  emailControl = new FormControl('', [Validators.required, Validators.email]);
 
-  passwordControl = new FormControl('');
+  passwordControl = new FormControl('', [Validators.required, Validators.minLength(8)]);
 
   addressesFormArray = new FormArray <FormGroup <AddressFormGroup>> (
     [
       new FormGroup(
         {
           address: new FormControl(''),
-        }
+        },
       ),
     ]
   );
@@ -67,3 +67,5 @@ export class FormComponent {
     this.addressesFormArray.removeAt(i);
   };
 }
+
+

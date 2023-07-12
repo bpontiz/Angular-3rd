@@ -4,16 +4,52 @@
             <div class="divBox">
                 <label for="username" class="labelBox">Username</label>
                 <input type="text" formControlName="username" id="usernameBox" autocomplete="off">
+                <div class="divErrors" *ngIf="userModel.get('username')?.invalid && (userModel.get('username')?.touched || userModel.get('username')?.dirty)">
+                    <span
+                        class="spanErrorBox"
+                        *ngIf="userModel.get('username')?.errors?.['required']">
+                        Username must be entered.
+                    </span>
+                    <span
+                        class="spanErrorBox"
+                        *ngIf="userModel.get('username')?.errors?.['minlength']">
+                        Minimum of 8 characters needed.
+                    </span>
+                </div>
             </div>
 
             <div class="divBox">
                 <label for="email" class="labelBox">Email</label>
                 <input type="email" formControlName="email" id="emailBox" autocomplete="off">
+                <div class="divErrors" *ngIf="userModel.get('email')?.invalid && (userModel.get('email')?.touched || userModel.get('email')?.dirty)">
+                    <span
+                        class="spanErrorBox"
+                        *ngIf="userModel.get('email')?.errors?.['required']">
+                        Email must be entered.
+                    </span>
+                    <span
+                        class="spanErrorBox"
+                        *ngIf="userModel.get('email')?.errors?.['email']">
+                        Email is not valid.
+                    </span>
+                </div>
             </div>
 
             <div class="divBox">                
                 <label for="password" class="labelBox">Password</label>
                 <input type="password" formControlName="password" id="passwordBox">
+                <div class="divErrors" *ngIf="userModel.get('password')?.invalid && (userModel.get('password')?.touched || userModel.get('password')?.dirty)">
+                    <span
+                        class="spanErrorBox"
+                        *ngIf="userModel.get('password')?.errors?.['required']">
+                        Password must be entered.
+                    </span>
+                    <span
+                        class="spanErrorBox"
+                        *ngIf="userModel.get('password')?.errors?.['minlength']">
+                        Minimum of 8 characters needed.
+                    </span>
+                </div>
             </div>
 
             <div class="divBox" *ngFor="let address of addressesFormArray.controls; let i = index">
